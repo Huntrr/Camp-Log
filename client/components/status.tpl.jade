@@ -1,0 +1,15 @@
+tr(class="#{statStyle}")
+  td(style="vertical-align: middle;") #{name}
+  td(style="vertical-align: middle;") #{stat}
+  td(style="vertical-align: middle;") 
+    a(href="/user/#{_id}") Logs
+  td
+    if in
+      .btn-group(role="group" aria-label="signout_#{_id}")
+        button.btn.btn-default.hour-off(type="button") Hour/Night off
+        button.btn.btn-default.day-off(type="button") Day off
+    else
+      button.btn.btn-default.sign-in(type="button") Sign in
+  if admin
+    td
+      button.btn.btn-default.delete-user(type="button") X

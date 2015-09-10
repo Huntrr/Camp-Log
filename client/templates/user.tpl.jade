@@ -1,0 +1,32 @@
+div.jumbotron
+  div.container
+    br
+    h5 (<a href="/">Return home</a>)
+    h2 Overview for #{name}
+
+    table.table.table-striped
+      thead(style="font-weight: bold;")
+        tr
+          td Name
+          td Status
+          td History
+          td Sign out/in
+      tbody
+        +status
+
+div.container
+  if nonZero numLogs
+    h3 Showing{{#if plural numLogs}} all{{/if}} #{numLogs} log{{addS numLogs}} for #{name}
+    table.table.table-hover
+      thead(style="font-weight: bold;")
+        tr
+          td Type
+          td Sign-out time
+          td Sign-in time
+          if admin
+            td Delete
+      tbody
+        each logs
+          +log
+  else
+    h3 There are no logs to show...
